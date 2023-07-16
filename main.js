@@ -16,8 +16,9 @@ counterComp.innerText = computerScore;
 
 const hand = ['paper', 'rock', 'scissors'];
 
-array.forEach(function (element, i) {
+array.forEach(function(element, i) {
     element.addEventListener('click', function() {
+        disableOtherClicks(this, 4000);
         let playerHand = hand[i];
         checkResult(playerHand, computerHand());
     });
@@ -26,20 +27,41 @@ array.forEach(function (element, i) {
 disclaimerText.innerText = "Please select a hand!";
 
 let checkResult = function(playerHand, computerHand) {
+    let message = disclaimerText.innerHTML = "PLAYER: " + playerHand + "<br> COMPUTER: " + computerHand;
     console.log(playerHand, computerHand)
     if (playerHand === computerHand) {
-        disclaimerText.innerText = "It's a tie!";
+        message;
+
+        setTimeout(() => {
+            disclaimerText.innerText = "It's a tie!";
+        }, 3000);
     } else if (playerHand === "paper" && computerHand === "rock") {
-        disclaimerText.innerText = "You won!";
+        message;
+
+        setTimeout(() => {
+            disclaimerText.innerText = "You won!";
+        }, 3000);
         playerScore++;
     } else if (playerHand === "rock" && computerHand === "scissors") {
-        disclaimerText.innerText = "You won!";
+        message;
+
+        setTimeout(() => {
+            disclaimerText.innerText = "You won!";
+        }, 3000);
         playerScore++;
     } else if (playerHand === "scissors" && computerHand === "paper") {
-        disclaimerText.innerText = "You won!";
+        message;
+
+        setTimeout(() => {
+            disclaimerText.innerText = "You won!";
+        }, 3000);
         playerScore++;
     } else {
-        disclaimerText.innerText = "The computer has won!";
+        message;
+
+        setTimeout(() => {
+            disclaimerText.innerText = "The computer has won!";
+        }, 3000);
         computerScore++;
     }
     counterPlayer.innerText = playerScore;
@@ -48,4 +70,24 @@ let checkResult = function(playerHand, computerHand) {
 
 let computerHand = function() {
     return hand[Math.floor(Math.random() * 3)];
+}
+
+function disableOtherClicks(clickedElement, duration) {
+    array.forEach(function(element) {
+        if (element !== clickedElement) {
+            element.style.pointerEvents = 'none';
+        } else {
+            element.style.pointerEvents = 'none';
+        }
+    });
+
+    setTimeout(function() {
+        array.forEach(function(element) {
+            if (element !== clickedElement) {
+                element.style.pointerEvents = 'auto';
+            } else {
+                element.style.pointerEvents = 'auto';
+            }
+        });
+    }, duration);
 }
