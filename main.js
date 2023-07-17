@@ -5,13 +5,15 @@ const counterPlayer = document.getElementById('user');
 const counterComp = document.getElementById('comp');
 const disclaimer = document.getElementById('disclaimer');
 const disclaimerText = document.getElementById('disclaimer-text');
-const money = document.getElementById('money');
+const counterMoney = document.getElementById('money');
 
 const array = [rock, paper, scissors];
 
 let playerScore = 0;
-let computerScore = 0;2000
+let computerScore = 0;
+let moneyPlayer = 0;
 
+counterMoney.innerText = moneyPlayer;
 counterPlayer.innerText = playerScore;
 counterComp.innerText = computerScore;
 
@@ -43,6 +45,7 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "You won!";
         }, 2000);
         playerScore++;
+        moneyPlayer += 3;
     } else if (playerHand === "rock" && computerHand === "scissors") {
         message;
 
@@ -50,6 +53,7 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "You won!";
         }, 2000);
         playerScore++;
+        moneyPlayer += 3;
     } else if (playerHand === "scissors" && computerHand === "paper") {
         message;
 
@@ -57,6 +61,7 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "You won!";
         }, 2000);
         playerScore++;
+        moneyPlayer += 3;
     } else {
         message;
 
@@ -64,9 +69,11 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "The computer has won!";
         }, 2000);
         computerScore++;
+        moneyPlayer -= 1;
     }
     counterPlayer.innerText = playerScore;
     counterComp.innerText = computerScore;
+    counterMoney.innerText = moneyPlayer;
 }
 
 let computerHand = function() {

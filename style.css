@@ -17,3 +17,7 @@ span {
 #money {
     color: yellow;
 }
+
+.card {
+    border: 5px solid black;
+}
