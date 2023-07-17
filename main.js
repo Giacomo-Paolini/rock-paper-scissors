@@ -37,13 +37,21 @@ let checkResult = function(playerHand, computerHand) {
 
         setTimeout(() => {
             disclaimerText.innerText = "It's a tie!";
-        }, 2000);
+        }, 1500);
+
+        setTimeout(() => {
+            disclaimerText.innerText = "Please select a hand!";
+        }, 2500);
     } else if (playerHand === "paper" && computerHand === "rock") {
         message;
 
         setTimeout(() => {
             disclaimerText.innerText = "You won!";
-        }, 2000);
+        }, 1500);
+
+        setTimeout(() => {
+            disclaimerText.innerText = "Please select a hand!";
+        }, 2500);
         playerScore++;
         moneyPlayer += 3;
     } else if (playerHand === "rock" && computerHand === "scissors") {
@@ -51,7 +59,11 @@ let checkResult = function(playerHand, computerHand) {
 
         setTimeout(() => {
             disclaimerText.innerText = "You won!";
-        }, 2000);
+        }, 1500);
+
+        setTimeout(() => {
+            disclaimerText.innerText = "Please select a hand!";
+        }, 2500);
         playerScore++;
         moneyPlayer += 3;
     } else if (playerHand === "scissors" && computerHand === "paper") {
@@ -59,7 +71,11 @@ let checkResult = function(playerHand, computerHand) {
 
         setTimeout(() => {
             disclaimerText.innerText = "You won!";
-        }, 2000);
+        }, 1500);
+
+        setTimeout(() => {
+            disclaimerText.innerText = "Please select a hand!";
+        }, 2500);
         playerScore++;
         moneyPlayer += 3;
     } else {
@@ -67,7 +83,11 @@ let checkResult = function(playerHand, computerHand) {
 
         setTimeout(() => {
             disclaimerText.innerText = "The computer has won!";
-        }, 2000);
+        }, 1500);
+
+        setTimeout(() => {
+            disclaimerText.innerText = "Please select a hand!";
+        }, 2500);
         computerScore++;
         moneyPlayer -= 1;
     }
