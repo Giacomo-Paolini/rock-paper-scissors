@@ -5,11 +5,12 @@ const counterPlayer = document.getElementById('user');
 const counterComp = document.getElementById('comp');
 const disclaimer = document.getElementById('disclaimer');
 const disclaimerText = document.getElementById('disclaimer-text');
+const money = document.getElementById('money');
 
 const array = [rock, paper, scissors];
 
 let playerScore = 0;
-let computerScore = 0;
+let computerScore = 0;2000
 
 counterPlayer.innerText = playerScore;
 counterComp.innerText = computerScore;
@@ -18,7 +19,7 @@ const hand = ['paper', 'rock', 'scissors'];
 
 array.forEach(function(element, i) {
     element.addEventListener('click', function() {
-        disableOtherClicks(this, 4000);
+        disableOtherClicks(this, 3000);
         let playerHand = hand[i];
         checkResult(playerHand, computerHand());
     });
@@ -34,34 +35,34 @@ let checkResult = function(playerHand, computerHand) {
 
         setTimeout(() => {
             disclaimerText.innerText = "It's a tie!";
-        }, 3000);
+        }, 2000);
     } else if (playerHand === "paper" && computerHand === "rock") {
         message;
 
         setTimeout(() => {
             disclaimerText.innerText = "You won!";
-        }, 3000);
+        }, 2000);
         playerScore++;
     } else if (playerHand === "rock" && computerHand === "scissors") {
         message;
 
         setTimeout(() => {
             disclaimerText.innerText = "You won!";
-        }, 3000);
+        }, 2000);
         playerScore++;
     } else if (playerHand === "scissors" && computerHand === "paper") {
         message;
 
         setTimeout(() => {
             disclaimerText.innerText = "You won!";
-        }, 3000);
+        }, 2000);
         playerScore++;
     } else {
         message;
 
         setTimeout(() => {
             disclaimerText.innerText = "The computer has won!";
-        }, 3000);
+        }, 2000);
         computerScore++;
     }
     counterPlayer.innerText = playerScore;
