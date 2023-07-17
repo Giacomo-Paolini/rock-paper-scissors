@@ -27,6 +27,12 @@ array.forEach(function(element, i) {
     });
 });
 
+function timerMessage() {
+    setTimeout(() => {
+        disclaimerText.innerText = "Please select a hand!";
+    }, 2500);
+}
+
 disclaimerText.innerText = "Please select a hand!";
 
 let checkResult = function(playerHand, computerHand) {
@@ -39,9 +45,7 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "It's a tie!";
         }, 1500);
 
-        setTimeout(() => {
-            disclaimerText.innerText = "Please select a hand!";
-        }, 2500);
+        timerMessage()
     } else if (playerHand === "paper" && computerHand === "rock") {
         message;
 
@@ -49,9 +53,7 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "You won!";
         }, 1500);
 
-        setTimeout(() => {
-            disclaimerText.innerText = "Please select a hand!";
-        }, 2500);
+        timerMessage()
         playerScore++;
         moneyPlayer += 3;
     } else if (playerHand === "rock" && computerHand === "scissors") {
@@ -61,9 +63,7 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "You won!";
         }, 1500);
 
-        setTimeout(() => {
-            disclaimerText.innerText = "Please select a hand!";
-        }, 2500);
+        timerMessage()
         playerScore++;
         moneyPlayer += 3;
     } else if (playerHand === "scissors" && computerHand === "paper") {
@@ -73,9 +73,7 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "You won!";
         }, 1500);
 
-        setTimeout(() => {
-            disclaimerText.innerText = "Please select a hand!";
-        }, 2500);
+        timerMessage()
         playerScore++;
         moneyPlayer += 3;
     } else {
@@ -85,9 +83,7 @@ let checkResult = function(playerHand, computerHand) {
             disclaimerText.innerText = "The computer has won!";
         }, 1500);
 
-        setTimeout(() => {
-            disclaimerText.innerText = "Please select a hand!";
-        }, 2500);
+        timerMessage()
         computerScore++;
         moneyPlayer -= 1;
     }
