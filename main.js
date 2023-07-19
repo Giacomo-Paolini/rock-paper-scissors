@@ -16,36 +16,46 @@ counterComp.innerText = computerScore;
 
 const hand = ['paper', 'rock', 'scissors'];
 
-array.forEach(function (element, i) {
-    element.addEventListener('click', function() {
-        let playerHand = hand[i];
-        checkResult(playerHand, computerHand());
+array.forEach((element, i) => {
+    element.addEventListener('click', function playRound() {
+        console.log(playRound);
+        body = document.querySelector("body")
+        body.style.pointerEvents = "none"
+        setTimeout(() => {
+            let playerHand = hand[i];
+            checkResult(playerHand, computerHand());
+            body.style.pointerEvents = "auto"
+        }, 2000);
     });
+
 });
 
 disclaimerText.innerText = "Please select a hand!";
 
-let checkResult = function(playerHand, computerHand) {
-    console.log(playerHand, computerHand)
+let checkResult = function (playerHand, computerHand) {
     if (playerHand === computerHand) {
-        disclaimerText.innerText = "It's a tie!";
+        disclaimText("It's a tie!")
     } else if (playerHand === "paper" && computerHand === "rock") {
-        disclaimerText.innerText = "You won!";
+        disclaimText("You won!")
         playerScore++;
     } else if (playerHand === "rock" && computerHand === "scissors") {
-        disclaimerText.innerText = "You won!";
+        disclaimText("You won!")
         playerScore++;
     } else if (playerHand === "scissors" && computerHand === "paper") {
-        disclaimerText.innerText = "You won!";
+        disclaimText("You won!")
         playerScore++;
     } else {
-        disclaimerText.innerText = "The computer has won!";
+        disclaimText("You lose!")
         computerScore++;
     }
     counterPlayer.innerText = playerScore;
     counterComp.innerText = computerScore;
 }
 
-let computerHand = function() {
+let computerHand = function () {
     return hand[Math.floor(Math.random() * 3)];
+}
+
+function disclaimText(text) {
+    disclaimerText.innerText = text;
 }
