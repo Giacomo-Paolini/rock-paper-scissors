@@ -7,11 +7,11 @@ body {
 }
 
 span {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 .dollar {
-    width: 3rem;
+    width: 2rem;
 }
 
 #money {
@@ -24,4 +24,8 @@ span {
 
 .card img{
     border-radius: 60%;
+}
+
+.game-area .col {
+    cursor: pointer;
 }
