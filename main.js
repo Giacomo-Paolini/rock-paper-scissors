@@ -5,12 +5,15 @@ const counterPlayer = document.getElementById('user');
 const counterComp = document.getElementById('comp');
 const disclaimer = document.getElementById('disclaimer');
 const disclaimerText = document.getElementById('disclaimer-text');
+const counterMoney = document.getElementById('money');
 
 const array = [rock, paper, scissors];
 
 let playerScore = 0;
 let computerScore = 0;
+let moneyPlayer = 0;
 
+counterMoney.innerText = moneyPlayer;
 counterPlayer.innerText = playerScore;
 counterComp.innerText = computerScore;
 
@@ -30,6 +33,12 @@ array.forEach((element, i) => {
 
 });
 
+function timerMessage() {
+    setTimeout(() => {
+        disclaimerText.innerText = "Please select a hand!";
+    }, 2500);
+}
+
 disclaimerText.innerText = "Please select a hand!";
 
 let checkResult = function (playerHand, computerHand) {
@@ -40,6 +49,7 @@ let checkResult = function (playerHand, computerHand) {
         playerScore++;
     } else if (playerHand === "rock" && computerHand === "scissors") {
         disclaimText("You won!")
+
         playerScore++;
     } else if (playerHand === "scissors" && computerHand === "paper") {
         disclaimText("You won!")
@@ -50,11 +60,13 @@ let checkResult = function (playerHand, computerHand) {
     }
     counterPlayer.innerText = playerScore;
     counterComp.innerText = computerScore;
+    counterMoney.innerText = moneyPlayer;
 }
 
 let computerHand = function () {
     return hand[Math.floor(Math.random() * 3)];
 }
+
 
 function disclaimText(text) {
     disclaimerText.innerText = text;

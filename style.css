@@ -1,7 +1,23 @@
+*{
+    font-family: 'VT323', monospace;
+}
+
 body {
     background-color: #035158;
 }
 
 span {
-    font-size: 3rem;
+    font-size: 3.5rem;
+}
+
+.dollar {
+    width: 6rem;
+}
+
+#money {
+    color: yellow;
+}
+
+.card {
+    border: 5px solid black;
 }
