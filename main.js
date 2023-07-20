@@ -11,8 +11,8 @@ const computerSelected = document.getElementById('computer-select');
 const userSelect = document.getElementById('user-select');
 const counterMoney = document.getElementById('money');
 
-const textComputerSelected = "your Select :";
-const textUserSelected = "computer Select :";
+const textComputerSelected = "computer Select :";
+const textUserSelected = "your Select :";
 
 const array = [rock, paper, scissors];
 
@@ -50,25 +50,25 @@ function timerMessage() {
 
 disclaimerText.innerText = "Please select a hand!";
 
-let checkResult = function (playerHand, computerHand, userSelected) {
+let checkResult = function (playerHand, computerHand,) {
     if (playerHand === computerHand) {
-        selectedText(textUserSelected + playerHand, computerSelected)
-        selectedText(textComputerSelected + computerHand, userSelect)
+        selectedText(textUserSelected + playerHand, userSelect)
+        selectedText(textComputerSelected + computerHand, computerSelected)
         disclaimText("Try")
     } else if (playerHand === "paper" && computerHand === "rock") {
-        selectedText(textUserSelected + playerHand, computerSelected)
-        selectedText(textComputerSelected + computerHand, userSelect)
+        selectedText(textUserSelected + playerHand, userSelect)
+        selectedText(textComputerSelected + computerHand, computerSelected)
         disclaimText("You won!")
         playerScore++;
     } else if (playerHand === "rock" && computerHand === "scissors") {
-        selectedText(textUserSelected + playerHand, computerSelected)
-        selectedText(textComputerSelected + computerHand, userSelect)
+        selectedText(textUserSelected + playerHand, userSelect)
+        selectedText(textComputerSelected + computerHand, computerSelected)
         disclaimText("You won!")
 
         playerScore++;
     } else if (playerHand === "scissors" && computerHand === "paper") {
-        selectedText(textUserSelected + playerHand, computerSelected)
-        selectedText(textComputerSelected + computerHand, userSelect)
+        selectedText(textUserSelected + playerHand, userSelect)
+        selectedText(textComputerSelected + computerHand, computerSelected)
         disclaimText("You won!")
         playerScore++;
     } else {
