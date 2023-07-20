@@ -19,12 +19,18 @@ counterComp.innerText = computerScore;
 
 const hand = ['paper', 'rock', 'scissors'];
 
-array.forEach(function(element, i) {
-    element.addEventListener('click', function() {
-        disableOtherClicks(this, 3000);
-        let playerHand = hand[i];
-        checkResult(playerHand, computerHand());
+array.forEach((element, i) => {
+    element.addEventListener('click', function playRound() {
+        console.log(playRound);
+        body = document.querySelector("body")
+        body.style.pointerEvents = "none"
+        setTimeout(() => {
+            let playerHand = hand[i];
+            checkResult(playerHand, computerHand());
+            body.style.pointerEvents = "auto"
+        }, 2000);
     });
+
 });
 
 function timerMessage() {
@@ -35,83 +41,33 @@ function timerMessage() {
 
 disclaimerText.innerText = "Please select a hand!";
 
-let checkResult = function(playerHand, computerHand) {
-    let message = disclaimerText.innerHTML = "PLAYER: " + playerHand + "<br> COMPUTER: " + computerHand;
-    console.log(playerHand, computerHand)
+let checkResult = function (playerHand, computerHand) {
     if (playerHand === computerHand) {
-        message;
-
-        setTimeout(() => {
-            disclaimerText.innerText = "It's a tie!";
-        }, 1500);
-
-        timerMessage()
+        disclaimText("It's a tie!")
     } else if (playerHand === "paper" && computerHand === "rock") {
-        message;
-
-        setTimeout(() => {
-            disclaimerText.innerText = "You won!";
-        }, 1500);
-
-        timerMessage()
+        disclaimText("You won!")
         playerScore++;
-        moneyPlayer += 3;
     } else if (playerHand === "rock" && computerHand === "scissors") {
-        message;
+        disclaimText("You won!")
 
-        setTimeout(() => {
-            disclaimerText.innerText = "You won!";
-        }, 1500);
-
-        timerMessage()
         playerScore++;
-        moneyPlayer += 3;
     } else if (playerHand === "scissors" && computerHand === "paper") {
-        message;
-
-        setTimeout(() => {
-            disclaimerText.innerText = "You won!";
-        }, 1500);
-
-        timerMessage()
+        disclaimText("You won!")
         playerScore++;
-        moneyPlayer += 3;
     } else {
-        message;
-
-        setTimeout(() => {
-            disclaimerText.innerText = "The computer has won!";
-        }, 1500);
-
-        timerMessage()
+        disclaimText("You lose!")
         computerScore++;
-        moneyPlayer -= 1;
     }
     counterPlayer.innerText = playerScore;
     counterComp.innerText = computerScore;
     counterMoney.innerText = moneyPlayer;
 }
 
-let computerHand = function() {
+let computerHand = function () {
     return hand[Math.floor(Math.random() * 3)];
 }
 
-function disableOtherClicks(clickedElement, duration) {
-    array.forEach(function(element) {
-        if (element !== clickedElement) {
-            element.style.pointerEvents = 'none';
-        } else {
-            element.style.pointerEvents = 'none';
-        }
-    });
 
-    setTimeout(function() {
-        array.forEach(function(element) {
-            if (element !== clickedElement) {
-                element.style.pointerEvents = 'auto';
-            } else {
-                element.style.pointerEvents = 'auto';
-            }
-        });
-    }, duration);
+function disclaimText(text) {
+    disclaimerText.innerText = text;
 }
