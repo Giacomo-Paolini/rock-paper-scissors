@@ -11,7 +11,7 @@ span {
 }
 
 .dollar {
-    width: 6rem;
+    width: 3rem;
 }
 
 #money {
@@ -20,4 +20,8 @@ span {
 
 .card {
     border: 5px solid black;
+}
+
+.card img{
+    border-radius: 60%;
 }

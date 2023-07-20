@@ -1,3 +1,5 @@
+//Data
+
 const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
@@ -5,7 +7,12 @@ const counterPlayer = document.getElementById('user');
 const counterComp = document.getElementById('comp');
 const disclaimer = document.getElementById('disclaimer');
 const disclaimerText = document.getElementById('disclaimer-text');
+const computerSelected = document.getElementById('computer-select');
+const userSelect = document.getElementById('user-select');
 const counterMoney = document.getElementById('money');
+
+const textComputerSelected = "your Select :";
+const textUserSelected = "computer Select :";
 
 const array = [rock, paper, scissors];
 
@@ -19,6 +26,8 @@ counterComp.innerText = computerScore;
 
 const hand = ['paper', 'rock', 'scissors'];
 
+
+//Game
 array.forEach((element, i) => {
     element.addEventListener('click', function playRound() {
         console.log(playRound);
@@ -41,17 +50,25 @@ function timerMessage() {
 
 disclaimerText.innerText = "Please select a hand!";
 
-let checkResult = function (playerHand, computerHand) {
+let checkResult = function (playerHand, computerHand, userSelected) {
     if (playerHand === computerHand) {
-        disclaimText("It's a tie!")
+        selectedText(textUserSelected + playerHand, computerSelected)
+        selectedText(textComputerSelected + computerHand, userSelect)
+        disclaimText("Try")
     } else if (playerHand === "paper" && computerHand === "rock") {
+        selectedText(textUserSelected + playerHand, computerSelected)
+        selectedText(textComputerSelected + computerHand, userSelect)
         disclaimText("You won!")
         playerScore++;
     } else if (playerHand === "rock" && computerHand === "scissors") {
+        selectedText(textUserSelected + playerHand, computerSelected)
+        selectedText(textComputerSelected + computerHand, userSelect)
         disclaimText("You won!")
 
         playerScore++;
     } else if (playerHand === "scissors" && computerHand === "paper") {
+        selectedText(textUserSelected + playerHand, computerSelected)
+        selectedText(textComputerSelected + computerHand, userSelect)
         disclaimText("You won!")
         playerScore++;
     } else {
@@ -63,6 +80,8 @@ let checkResult = function (playerHand, computerHand) {
     counterMoney.innerText = moneyPlayer;
 }
 
+//function
+
 let computerHand = function () {
     return hand[Math.floor(Math.random() * 3)];
 }
@@ -70,4 +89,9 @@ let computerHand = function () {
 
 function disclaimText(text) {
     disclaimerText.innerText = text;
+}
+
+function selectedText(text, container) {
+    container.innerText = text
+    
 }
